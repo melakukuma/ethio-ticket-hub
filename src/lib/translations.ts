@@ -1,0 +1,335 @@
+export const translations = {
+  en: {
+    nav: {
+      home: "Home",
+      events: "Events",
+      kids: "Kids Program",
+      myTickets: "My Tickets",
+      admin: "Admin",
+      language: "Language",
+      logout: "Logout"
+    },
+    home: {
+      heroTitle: "Experience Unforgettable Moments",
+      heroSubtitle: "Discover the best events in town with Harmony Event And Promotion",
+      upcomingEvents: "Upcoming Events",
+      viewAll: "View All Events"
+    },
+    events: {
+      title: "All Events",
+      filterDate: "Filter by Date",
+      filterCategory: "Filter by Category",
+      allCategories: "All Categories",
+      music: "Music",
+      business: "Business",
+      art: "Art",
+      kids: "Kids",
+      all: "All",
+      noEvents: "No events found matching your criteria.",
+      details: "Details",
+      buyNow: "Buy Now"
+    },
+    eventDetails: {
+      location: "Location",
+      date: "Date & Time",
+      price: "Ticket Price",
+      buyTicket: "Buy Ticket",
+      description: "Description",
+      map: "Event Location Map"
+    },
+    buyTicket: {
+      title: "Get Your Tickets",
+      fullName: "Full Name",
+      phone: "Phone Number",
+      email: "Email (Optional)",
+      quantity: "Number of Tickets",
+      total: "Total Amount",
+      paymentMethod: "Payment Method",
+      instructions: "Payment Instructions",
+      transactionId: "Transaction ID / Reference Number",
+      uploadScreenshot: "Upload Screenshot (Optional)",
+      submit: "Submit Payment for Verification",
+      success: "Your payment has been submitted! Please wait for admin approval.",
+      error: "Please fill in all required fields.",
+      price: "Ticket Price"
+    },
+    tickets: {
+      title: "My Tickets",
+      noTickets: "You don't have any tickets yet.",
+      pending: "Pending Approval",
+      approved: "Approved",
+      rejected: "Rejected",
+      used: "Already Used",
+      downloadQr: "Download QR",
+      downloadPdf: "Download PDF",
+      eventId: "Event ID",
+      ticketId: "Ticket ID"
+    },
+    admin: {
+      login: "Admin Login",
+      username: "Username",
+      password: "Password",
+      submit: "Login",
+      dashboard: "Admin Dashboard",
+      createEvent: "Create Event",
+      viewBuyers: "View Ticket Buyers",
+      buyers: "Ticket Buyers",
+      scanQr: "Scan QR Tickets",
+      qrScanner: "QR Scanner",
+      reports: "Sales Reports",
+      salesReport: "Sales Report",
+      approve: "Approve",
+      reject: "Reject",
+      verify: "Verify Transaction",
+      status: "Status",
+      actions: "Actions",
+      eventTitle: "Event Title",
+      eventDesc: "Description",
+      eventPrice: "Price",
+      eventStock: "Tickets Available",
+      saveEvent: "Save Event",
+      checkTelebirr: "Verify Telebirr",
+      checkCBE: "Verify CBE Birr",
+      eventLocationName: "Location Name",
+      eventLat: "Latitude",
+      eventLng: "Longitude",
+      logout: "Logout"
+    },
+    scanner: {
+      title: "QR Ticket Scanner",
+      valid: "Valid Ticket",
+      used: "Already Used",
+      invalid: "Invalid Ticket",
+      scanSuccess: "Ticket verified successfully"
+    },
+    common: {
+      loading: "Loading...",
+      error: "An error occurred",
+      success: "Success",
+      back: "Back"
+    }
+  },
+  am: {
+    nav: {
+      home: "መነሻ",
+      events: "ኩነቶች",
+      kids: "የልጆች ፕሮግራም",
+      myTickets: "ትኬቶቼ",
+      admin: "አስተዳዳሪ",
+      language: "ቋንቋ",
+      logout: "ውጣ"
+    },
+    home: {
+      heroTitle: "የማይረሱ ጊዜያትን ያሳልፉ",
+      heroSubtitle: "ከሀርሞኒ ኢቨንት እና ፕሮሞሽን ጋር ምርጥ ኩነቶችን ያግኙ",
+      upcomingEvents: "መጪ ኩነቶች",
+      viewAll: "ሁሉንም ኩነቶች ይመልከቱ"
+    },
+    events: {
+      title: "ሁሉንም ኩነቶች",
+      filterDate: "በቀን ይለዩ",
+      filterCategory: "በአይነት ይለዩ",
+      allCategories: "ሁሉም",
+      music: "ሙዚቃ",
+      business: "ቢዝነስ",
+      art: "ጥበብ",
+      kids: "ልጆች",
+      all: "ሁሉም",
+      noEvents: "ምንም ኩነት አልተገኘም",
+      details: "ዝርዝር",
+      buyNow: "አሁኑኑ ይግዙ"
+    },
+    eventDetails: {
+      location: "ቦታ",
+      date: "ቀን እና ሰዓት",
+      price: "የትኬት ዋጋ",
+      buyTicket: "ትኬት ይግዙ",
+      description: "መግለጫ",
+      map: "የቦታ ካርታ"
+    },
+    buyTicket: {
+      title: "ትኬቱን ያግኙ",
+      fullName: "ሙሉ ስም",
+      phone: "ስልክ ቁጥር",
+      email: "ኢሜይል (አማራጭ)",
+      quantity: "የትኬት ብዛት",
+      total: "ጠቅላላ ዋጋ",
+      paymentMethod: "የክፍያ አማራጭ",
+      instructions: "የክፍያ መመሪያዎች",
+      transactionId: "የማረጋገጫ ቁጥር (Transaction ID)",
+      uploadScreenshot: "ስክሪንሾት ይላኩ (አማራጭ)",
+      submit: "ለማረጋገጫ ይላኩ",
+      success: "ክፍያዎ ተልኳል! እባክዎ በአስተዳዳሪው እስኪረጋገጥ ይጠብቁ።",
+      error: "እባክዎ ሁሉንም አስፈላጊ መረጃዎች ይሙሉ",
+      price: "የትኬት ዋጋ"
+    },
+    tickets: {
+      title: "ትኬቶቼ",
+      noTickets: "ምንም ትኬት የሎትም።",
+      pending: "በመጠበቅ ላይ",
+      approved: "የተረጋገጠ",
+      rejected: "ውድቅ የተደረገ",
+      used: "ጥቅም ላይ የዋለ",
+      downloadQr: "QR ያውርዱ",
+      downloadPdf: "PDF ያውርዱ",
+      eventId: "የኩነቱ መለያ",
+      ticketId: "የትኬት መለያ"
+    },
+    admin: {
+      login: "የአስተዳዳሪ መግቢያ",
+      username: "ተጠቃሚ ስም",
+      password: "የይለፍ ቃል",
+      submit: "ግባ",
+      dashboard: "የአስተዳዳሪ ዳሽቦርድ",
+      createEvent: "ኩነት ፍጠር",
+      viewBuyers: "ገዢዎችን ተመልከት",
+      buyers: "የትኬት ገዢዎች",
+      scanQr: "QR ስካን አድርግ",
+      qrScanner: "QR ስካነር",
+      reports: "ሪፖርቶች",
+      salesReport: "የሽያጭ ሪፖርት",
+      approve: "አፅድቅ",
+      reject: "ውድቅ አድርግ",
+      verify: "ክፍያውን አረጋግጥ",
+      status: "ሁኔታ",
+      actions: "ተግባራት",
+      eventTitle: "የኩነቱ ርዕስ",
+      eventDesc: "መግለጫ",
+      eventPrice: "ዋጋ",
+      eventStock: "ያሉ ትኬቶች",
+      saveEvent: "ኩነቱን መዝግብ",
+      checkTelebirr: "ቴሌብር አረጋግጥ",
+      checkCBE: "ሲቢኢ ብር አረጋግጥ",
+      eventLocationName: "የቦታ ስም",
+      eventLat: "ላቲቲዩድ",
+      eventLng: "ሎንጊቲዩድ",
+      logout: "ውጣ"
+    },
+    scanner: {
+      title: "QR ትኬት ስካነር",
+      valid: "ትክክለኛ ትኬት",
+      used: "ጥቅም ላይ የዋለ",
+      invalid: "የማይሰራ ትኬት",
+      scanSuccess: "ትኬቱ በትክክል ተረጋግጧል"
+    },
+    common: {
+      loading: "በመጫን ላይ...",
+      error: "ስህተት ተከስቷል",
+      success: "ተሳክቷል",
+      back: "ተመለስ"
+    }
+  },
+  om: {
+    nav: {
+      home: "Ka'umsa",
+      events: "Qophiiwwan",
+      kids: "Sagantaa Ijoollee",
+      myTickets: "Tikkeetii Koo",
+      admin: "Bulchaa",
+      language: "Afaan",
+      logout: "Logout"
+    },
+    home: {
+      heroTitle: "Yeroo Hin Irranfatamne Dabarsaa",
+      heroSubtitle: "Harmony Event And Promotion waliin qophiiwwan babbareedoo argadhaa",
+      upcomingEvents: "Qophiiwwan Dhufan",
+      viewAll: "Qophiiwwan Hunda Ilaali"
+    },
+    events: {
+      title: "Qophiiwwan Hunda",
+      filterDate: "Guyyaan Gargar Baasi",
+      filterCategory: "Gosaan Gargar Baasi",
+      allCategories: "Hunda",
+      music: "Muuziqaa",
+      business: "Bizinesii",
+      art: "Aartii",
+      kids: "Ijoollee",
+      all: "Hunda",
+      noEvents: "Qophiin tokkoyyuu hin argamne.",
+      details: "Ibsa",
+      buyNow: "Bitadhu"
+    },
+    eventDetails: {
+      location: "Bakka",
+      date: "Guyyaa fi Sa'aatii",
+      price: "Gatii Tikkeetii",
+      buyTicket: "Tikkeetii Bitadhu",
+      description: "Ibsa",
+      map: "Kaarta Bakkaa"
+    },
+    buyTicket: {
+      title: "Tikkeetii Keessan Argadhaa",
+      fullName: "Maqaa Guutuu",
+      phone: "Lakkoofsa Bilbilaa",
+      email: "Iimeeyilii (Filannoo)",
+      quantity: "Baay'ina Tikkeetii",
+      total: "Gatii Waliigalaa",
+      paymentMethod: "Malleen Kaffaltii",
+      instructions: "Qajeelfama Kaffaltii",
+      transactionId: "Lakkoofsa Mirkaneessaa (Transaction ID)",
+      uploadScreenshot: "Screenshot erga (Filannoo)",
+      submit: "Mirkaneessaaf Ergi",
+      success: "Kaffaltiin keessan ergameera! Hamma bulchaan mirkaneessutti obsaan eigaa.",
+      error: "Maaloo hunda isaa guutaa",
+      price: "Gatii Tikkeetii"
+    },
+    tickets: {
+      title: "Tikkeetii Koo",
+      noTickets: "Hamma yoonaa tikkeetii hin qabdan.",
+      pending: "Eeggataa Jira",
+      approved: "Mirkanaa'eera",
+      rejected: "Kufaatti Ta'e",
+      used: "Hojiirra Ooleera",
+      downloadQr: "QR Buufadhu",
+      downloadPdf: "PDF Buufadhu",
+      eventId: "ID Qophii",
+      ticketId: "ID Tikkeetii"
+    },
+    admin: {
+      login: "Seensa Bulchaa",
+      username: "Maqaa Itti Fayyadamaa",
+      password: "Jecha Icchitii",
+      submit: "Seenidhu",
+      dashboard: "Daashboordii Bulchaa",
+      createEvent: "Qophii Haaraa Uumi",
+      viewBuyers: "Bitattoota Ilaali",
+      buyers: "Bitattoota Tikkeetii",
+      scanQr: "QR Skaan Godhi",
+      qrScanner: "QR Skaaner",
+      reports: "Gabaasaalee",
+      salesReport: "Gabaasa Gurgurtaa",
+      approve: "Mirkaneessi",
+      reject: "Kuffisi",
+      verify: "Kaffaltii Mirkaneessi",
+      status: "Haala",
+      actions: "Gochaalee",
+      eventTitle: "Mata-duree Qophii",
+      eventDesc: "Ibsa",
+      eventPrice: "Gatii",
+      eventStock: "Tikkeetii jiru",
+      saveEvent: "Qophii Galmeessi",
+      checkTelebirr: "Telebirr Mirkaneessi",
+      checkCBE: "CBE Birr Mirkaneessi",
+      eventLocationName: "Maqaa Bakkaa",
+      eventLat: "Laatitiyuudii",
+      eventLng: "Loongitiyuudii",
+      logout: "Logout"
+    },
+    scanner: {
+      title: "QR Skaaner Tikkeetii",
+      valid: "Tikkeetii Sirrii",
+      used: "Hojiirra Ooleera",
+      invalid: "Tikkeetii Dogoggoraa",
+      scanSuccess: "Tikkeetiin sirriitti mirkanaa'eera"
+    },
+    common: {
+      loading: "Fe'amaa jira...",
+      error: "Dogoggorri uumameera",
+      success: "Milkaa'eera",
+      back: "Duubatti"
+    }
+  }
+};
+
+export type Language = keyof typeof translations;
+export type Translation = typeof translations.en;
