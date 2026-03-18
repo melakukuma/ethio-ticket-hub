@@ -1,11 +1,11 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useAppContext, Ticket, Event } from '../context/AppContext';
 import { useLanguage } from '../context/LanguageContext';
 import { formatDate, downloadTicketAsPdf, downloadImage, cn } from '../lib/utils';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { QRCodeSVG } from 'qrcode.react';
+import { QRCodeCanvas } from 'qrcode.react';
 import { Download, FileText, Clock, CheckCircle2, XCircle, Search, Ticket as TicketIcon, MapPin, Calendar, Info } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -13,9 +13,7 @@ const MyTickets: React.FC = () => {
   const { tickets = [], events = [] } = useAppContext();
   const { t } = useLanguage();
 
-  const getEvent = (eventId: string) => (events || []).find(e => e?.id === eventId);
-
-  const validTickets = (tickets || []).filter(Boolean);
+  const getEvent = (eventId: string) => events.find(e => e.id === eventId);
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4">
@@ -28,12 +26,12 @@ const MyTickets: React.FC = () => {
           <div className="bg-white p-1 rounded-xl shadow-sm border border-gray-100 flex">
             <div className="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-lg text-sm font-bold flex items-center">
               <TicketIcon className="w-4 h-4 mr-2" />
-              Total: {validTickets.length}
+              Total: {tickets.length}
             </div>
           </div>
         </div>
 
-        {validTickets.length === 0 ? (
+        {tickets.length === 0 ? (
           <Card className="border-none shadow-xl py-20 text-center">
             <CardContent>
               <div className="inline-flex items-center justify-center w-20 h-20 bg-gray-100 text-gray-400 rounded-full mb-6">
@@ -48,7 +46,7 @@ const MyTickets: React.FC = () => {
           </Card>
         ) : (
           <div className="space-y-6">
-            {validTickets.map((ticket) => (
+            {tickets.map((ticket) => (
               <TicketItem key={ticket.id} ticket={ticket} event={getEvent(ticket.eventId)} t={t} />
             ))}
           </div>
@@ -66,18 +64,31 @@ const TicketItem: React.FC<{ ticket: Ticket; event: Event | undefined; t: any }>
     used: { label: t?.tickets?.used || "Used", icon: <Search className="w-4 h-4" />, color: "bg-gray-100 text-gray-700" }
   };
 
-  const statusKey = String(ticket?.status || '').toLowerCase();
-  const currentStatus = statusConfig[statusKey] || {
-    label: String(ticket?.status || "Unknown"),
+  const currentStatus = (ticket?.status && statusConfig[ticket.status]) || {
+    label: ticket?.status || "Unknown",
     icon: <Info className="w-4 h-4" />,
     color: "bg-gray-100 text-gray-700"
   };
 
   const handleDownloadQr = () => {
-    const canvas = document.getElementById(`qr-${ticket.id}`) as HTMLCanvasElement;
-    if (canvas) {
-      const url = canvas.toDataURL("image/png");
-      downloadImage(url, `ticket-qr-${ticket.id}.png`);
+    const element = document.getElementById(`qr-${ticket.id}`);
+    const canvas = element instanceof HTMLCanvasElement ? element : element?.querySelector('canvas');
+
+    if (canvas && typeof canvas.toDataURL === 'function') {
+      try {
+        const url = canvas.toDataURL("image/png");
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = `ticket-qr-${ticket.id}.png`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch (err) {
+        console.error("Error generating QR image:", err);
+        downloadImage(`qr-${ticket.id}`, `ticket-qr-${ticket.id}`);
+      }
+    } else {
+      downloadImage(`qr-${ticket.id}`, `ticket-qr-${ticket.id}`);
     }
   };
 
@@ -128,7 +139,7 @@ const TicketItem: React.FC<{ ticket: Ticket; event: Event | undefined; t: any }>
               <p className="text-xs text-gray-400 uppercase font-bold tracking-wider mb-1">Venue</p>
               <div className="flex items-center font-bold text-gray-800">
                 <MapPin className="w-4 h-4 mr-2 text-indigo-500" />
-                {event?.locationName || event?.location || "TBD"}
+                {event?.location || "TBD"}
               </div>
             </div>
           </div>
@@ -138,7 +149,7 @@ const TicketItem: React.FC<{ ticket: Ticket; event: Event | undefined; t: any }>
         <div className="flex-1 bg-indigo-50 p-8 flex flex-col items-center justify-center">
           {ticket.status === 'approved' || ticket.status === 'used' ? (
             <div className="bg-white p-4 rounded-2xl shadow-inner mb-6">
-              <QRCodeSVG 
+              <QRCodeCanvas 
                 id={`qr-${ticket.id}`}
                 value={ticket.id} 
                 size={140}
@@ -178,9 +189,9 @@ const TicketItem: React.FC<{ ticket: Ticket; event: Event | undefined; t: any }>
       </div>
 
       {/* Hidden printable ticket for PDF generation */}
-      <div style={{ position: 'absolute', left: '-9999px' }}>
+      <div style={{ position: 'fixed', left: '-9999px', top: '0', pointerEvents: 'none' }}>
         <div id={`ticket-content-${ticket.id}`} className="w-[600px] bg-white p-12 text-black">
-          <div className="border-4 border-indigo-600 p-8 rounded-3xl">
+          <div className="border-[10px] border-indigo-600 p-8 rounded-[40px]">
             <div className="flex justify-between items-start mb-8">
               <div>
                 <h1 className="text-3xl font-black text-indigo-600 mb-2">HARMONY</h1>
@@ -212,13 +223,13 @@ const TicketItem: React.FC<{ ticket: Ticket; event: Event | undefined; t: any }>
               </div>
               <div>
                 <p className="text-gray-400 text-xs uppercase font-bold mb-2">Location</p>
-                <p className="text-xl font-bold">{event?.locationName || event?.location || "TBD"}</p>
+                <p className="text-xl font-bold">{event?.location || "TBD"}</p>
               </div>
             </div>
 
             <div className="flex justify-center items-center py-10 border-t-2 border-dashed border-gray-100">
               <div className="bg-white p-6 border-2 border-indigo-50 rounded-3xl shadow-sm">
-                <QRCodeSVG value={ticket.id} size={200} level="H" />
+                <QRCodeCanvas value={ticket.id} size={200} level="H" />
               </div>
             </div>
 

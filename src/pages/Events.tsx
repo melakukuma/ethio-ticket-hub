@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 const Events: React.FC = () => {
-  const { events = [] } = useAppContext();
+  const { events } = useAppContext();
   const { t } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -21,7 +21,7 @@ const Events: React.FC = () => {
       if (!event) return false;
       const title = String(event.title || '');
       const locationName = String(event.locationName || event.location || '');
-      const search = String(searchTerm || '').toLowerCase();
+      const search = (searchTerm || '').toLowerCase();
       
       const matchesSearch = title.toLowerCase().includes(search) || 
                            locationName.toLowerCase().includes(search);
@@ -66,7 +66,7 @@ const Events: React.FC = () => {
                       : "bg-gray-50 text-gray-500 hover:bg-gray-100"
                   )}
                 >
-                  {cat === 'all' ? (t?.events?.all || 'All') : (t?.events?.[String(cat || '').toLowerCase() as keyof typeof t.events] || cat)}
+                  {cat === 'all' ? (t?.events?.all || 'All') : (t?.events?.[(cat || '').toLowerCase() as keyof typeof t.events] || cat)}
                 </button>
               ))}
             </div>
