@@ -110,3 +110,6 @@ const Events: React.FC = () => {
 };
 
 export default Events;
+export default function Events() {
+  return <div>Events Page</div>;
+}

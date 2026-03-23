@@ -3,7 +3,7 @@ import { AppProvider } from './context/AppContext';
 import { LanguageProvider } from './context/LanguageContext';
 import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home';
-import { Events } from './pages/Events';
+import Events from './pages/Events';
 import { EventDetails } from './pages/EventDetails';
 import { BuyTicket } from './pages/BuyTicket';
 import { MyTickets } from './pages/MyTickets';
