@@ -30,6 +30,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      base:process.env.VITE_TICKET_PATH "/ethio-ticket-hub"
     },
   },
 });
