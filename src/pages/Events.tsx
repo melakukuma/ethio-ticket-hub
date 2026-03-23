@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { useAppContext } from '../context/AppContext';
 import { useLanguage } from '../context/LanguageContext';
 import { EventCard } from '../components/EventCard';
-import { Search, Filter, Calendar as CalendarIcon, MapPin } from 'lucide-react';
+import { Search, Filter } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -22,10 +22,14 @@ const Events: React.FC = () => {
       const title = String(event.title || '');
       const locationName = String(event.locationName || event.location || '');
       const search = (searchTerm || '').toLowerCase();
-      
-      const matchesSearch = title.toLowerCase().includes(search) || 
-                           locationName.toLowerCase().includes(search);
-      const matchesCategory = selectedCategory === 'all' || event.category === selectedCategory;
+
+      const matchesSearch =
+        title.toLowerCase().includes(search) ||
+        locationName.toLowerCase().includes(search);
+
+      const matchesCategory =
+        selectedCategory === 'all' || event.category === selectedCategory;
+
       return matchesSearch && matchesCategory;
     });
   }, [events, searchTerm, selectedCategory]);
@@ -34,9 +38,12 @@ const Events: React.FC = () => {
     <div className="min-h-screen bg-gray-50 pb-20">
       <div className="bg-indigo-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-black mb-4">{t?.events?.title || 'Events'}</h1>
+          <h1 className="text-4xl md:text-5xl font-black mb-4">
+            {t?.events?.title || 'Events'}
+          </h1>
           <p className="text-indigo-200 text-lg max-w-2xl">
-            Find your next adventure. Browse through our curated list of the best events happening in town.
+            Find your next adventure. Browse through our curated list of the best
+            events happening in town.
           </p>
         </div>
       </div>
@@ -60,13 +67,16 @@ const Events: React.FC = () => {
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
                   className={cn(
-                    "px-6 py-3 rounded-2xl text-sm font-bold whitespace-nowrap transition-all",
-                    selectedCategory === cat 
-                      ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/30" 
-                      : "bg-gray-50 text-gray-500 hover:bg-gray-100"
+                    'px-6 py-3 rounded-2xl text-sm font-bold whitespace-nowrap transition-all',
+                    selectedCategory === cat
+                      ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                      : 'bg-gray-50 text-gray-500 hover:bg-gray-100'
                   )}
                 >
-                  {cat === 'all' ? (t?.events?.all || 'All') : (t?.events?.[(cat || '').toLowerCase() as keyof typeof t.events] || cat)}
+                  {cat === 'all'
+                    ? t?.events?.all || 'All'
+                    : t?.events?.[(cat || '').toLowerCase() as keyof typeof t.events] ||
+                      cat}
                 </button>
               ))}
             </div>
@@ -94,11 +104,16 @@ const Events: React.FC = () => {
             <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <Filter className="w-10 h-10 text-gray-300" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900">{t?.events?.noEvents || 'No events found'}</h2>
-            <Button 
-              variant="link" 
-              className="text-indigo-600 font-bold mt-2" 
-              onClick={() => {setSearchTerm(''); setSelectedCategory('all');}}
+            <h2 className="text-2xl font-bold text-gray-900">
+              {t?.events?.noEvents || 'No events found'}
+            </h2>
+            <Button
+              variant="link"
+              className="text-indigo-600 font-bold mt-2"
+              onClick={() => {
+                setSearchTerm('');
+                setSelectedCategory('all');
+              }}
             >
               Clear all filters
             </Button>
@@ -107,10 +122,6 @@ const Events: React.FC = () => {
       </div>
     </div>
   );
-};
-
-const Events: React.FC = () => {
-  return <div>Events Page</div>;
 };
 
 export default Events;

@@ -1,18 +1,18 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import  AppProvider  from './context/AppContext';
-import  LanguageProvider  from './context/LanguageContext';
-import  Navbar  from './components/Navbar';
-import  Home  from './pages/Home';
+import { AppProvider } from './context/AppContext';
+import { LanguageProvider } from './context/LanguageContext';
+import { Navbar } from './components/Navbar';
+import { Home } from './pages/Home';
 import Events from './pages/Events';
-import  EventDetails  from './pages/EventDetails';
-import  BuyTicket  from './pages/BuyTicket';
+import { EventDetails } from './pages/EventDetails';
+import { BuyTicket } from './pages/BuyTicket';
 import  MyTickets  from './pages/MyTickets';
-import  AdminDashboard  from './pages/AdminDashboard';
+import { AdminDashboard } from './pages/AdminDashboard';
 import  QRScannerPage  from './pages/QRScannerPage';
-import  KidsEvents  from './pages/KidsEvents';
-import AdminLogin from './pages/AdminLogin';
+import { KidsEvents } from './pages/KidsEvents';
+import { AdminLogin } from './pages/AdminLogin';
 import ProtectedRoute from './components/ProtectedRoute';
-import  Toaster  from 'sonner';
+import { Toaster } from 'sonner';
 
 function App() {
   return (
