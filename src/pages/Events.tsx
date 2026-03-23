@@ -109,7 +109,8 @@ const Events: React.FC = () => {
   );
 };
 
-export default Events;
-export default function Events() {
+const Events: React.FC = () => {
   return <div>Events Page</div>;
-}
+};
+
+export default Events;
