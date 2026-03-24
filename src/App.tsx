@@ -8,7 +8,7 @@ import { EventDetails } from './pages/EventDetails';
 import { BuyTicket } from './pages/BuyTicket';
 import  MyTickets  from './pages/MyTickets';
 import { AdminDashboard } from './pages/AdminDashboard';
-import  { QRScannerPage }  from './pages/QRScannerPage';
+import   QRScannerPage   from './pages/QRScannerPage';
 import { KidsEvents } from './pages/KidsEvents';
 import { AdminLogin } from './pages/AdminLogin';
 import ProtectedRoute from './components/ProtectedRoute';
